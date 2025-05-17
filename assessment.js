@@ -33,16 +33,24 @@ assessmentButton.addEventListener(
     // 画面の初期化
     resultDivision.innerText = '';
     
-
     // 結果の表示
-    const header = document.createElement('h3');
-    header.innerText = '診断結果';
-    resultDivision.appendChild(header);
+    const headerDivision = document.createElement('div');
+    headerDivision.setAttribute('class','bard-header text-bg-primary');
+    headerDivision.innerText = '診断結果';
+   
+    const bodyDivision = document.createElement('div');
+    bodyDivision.setAttribute('class','card-body');
 
     const paragraph = document.createElement('p');
+    paragraph.setAttribute('class','card-text');
+
     const result = assessment(userName);
     paragraph.innerText = result;
-    resultDivision.appendChild(paragraph);
+    bodyDivision.appendChild(paragraph);
+
+    resultDivision.appendChild(headerDivision);
+    resultDivision.appendChild(bodyDivision);
+    resultDivision.setAttribute('class','card');
 
     // X投稿ボタン
     tweetDivision.innerText = '';
